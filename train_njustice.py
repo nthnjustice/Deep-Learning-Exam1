@@ -77,7 +77,7 @@ class MLP:
             Dense(4, activation="softmax")
         ])
         model.compile(optimizer=SGD(0.001), loss="categorical_crossentropy", metrics=["accuracy"])
-        model.fit(self.x_train, self.y_train, batch_size=250, epochs=10, validation_data=(self.x_test, self.y_test),
+        model.fit(self.x_train, self.y_train, batch_size=1, epochs=10, validation_data=(self.x_test, self.y_test),
                   callbacks=[ModelCheckpoint("mlp_njustice.hdf5", monitor="val_loss", save_best_only=True)])
 
         self.model = model
